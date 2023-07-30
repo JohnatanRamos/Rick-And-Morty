@@ -4,6 +4,7 @@ import { BaseClass } from 'src/app/core/base.class';
 import { ITypeFilters, typeFields } from 'src/app/core/interfaces/ITypeFilters.interface';
 import { IRickAndMorty } from 'src/app/store/reducers/rickAndMorty.reducer';
 import * as actions from '../../../store/actions/rickAndMorty.actions';
+import { ViewCharacterComponent } from '../view-character/view-character.component';
 
 @Component({
   selector: 'app-list-characters',
@@ -15,6 +16,12 @@ export class ListCharactersComponent extends BaseClass implements OnInit {
   status = new FormControl(null);
   gender = new FormControl(null);
   options: ITypeFilters = {};
+  modal = ViewCharacterComponent;
+  typeStatus: any = {
+    Dead: 'Muerto',
+    Alive: 'Vivo',
+    unknown: 'Desconocido'
+  };
 
   ngOnInit(): void {
     this.getCharacters();

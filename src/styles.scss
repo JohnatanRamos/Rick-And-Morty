@@ -55,6 +55,6 @@ button:disabled {
     background-color: #ccc;
 }
 
-button:focus-visible{
+select:focus-visible, :focus-visible{
     outline: none;
 }

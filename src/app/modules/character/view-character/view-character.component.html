@@ -1,0 +1,40 @@
+<div class="main-container">
+    <app-title-modal [titleModal]="data.name"></app-title-modal>
+
+    <div class="character-information">
+        <div class="information-content">
+            <div class="flex">
+                <p class="sub-title">Nombre:</p>
+                <p>{{data.name}}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Estado:</p>
+                <p>{{ typeStatus[data.status] || 'No cuenta con una estado'}}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Especie:</p>
+                <p>{{ data.species || 'No cuenta con una especie'}}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Tipo:</p>
+                <p>{{ data.type || 'No cuenta con un tipo' }}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Genero:</p>
+                <p>{{ data.gender || 'No cuenta con un genero'}}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Origen:</p>
+                <p>{{ data.origin.name || 'No cuenta con un origen'}}</p>
+            </div>
+            <div class="flex">
+                <p class="sub-title">Lugar:</p>
+                <p>{{ data.location.name || 'No cuenta con un lugar'}}</p>
+            </div>
+        </div>
+        <div>
+            <img [src]="data.image" [alt]="data.name" width="300px" height="300px">
+        </div>
+    </div>
+    <app-buttons-modal></app-buttons-modal>
+</div>
