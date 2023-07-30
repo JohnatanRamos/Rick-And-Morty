@@ -1,6 +1,7 @@
 <div class="main-container">
   <app-filter (emitFilter)="getCharacters()"></app-filter>
 
+ <ng-container *ngIf="!notFound; else notFoundTemplate">
   <div class="filters-sort-content">
     <app-sort (emitSort)="getCharacters()"></app-sort>
 
@@ -39,4 +40,10 @@
   </div>
 
   <app-pagination (emitPageChange)="getCharacters()"></app-pagination>
+ </ng-container>
+ 
 </div>
+
+<ng-template #notFoundTemplate>
+  <app-not-found></app-not-found>
+</ng-template>

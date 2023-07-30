@@ -9,6 +9,7 @@ export class BaseClass {
   protected baseService = inject(BaseService);
   protected store = inject(Store<AppState>);
   protected dialog = inject(MatDialog);
+  protected notFound!: boolean;
 
   openModal(modal: ComponentType<unknown>, data: any) {
     this.dialog.open(modal, {

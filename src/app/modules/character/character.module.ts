@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewCharacterComponent } from './view-character/view-character.component';
 import { TitleModalComponent } from 'src/app/shared/title-modal/title-modal.component';
 import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-modal.component';
+import { NotFoundComponent } from 'src/app/shared/not-found/not-found.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-moda
     ReactiveFormsModule,
     NgOptimizedImage,
     TitleModalComponent,
-    ButtonsModalComponent
+    ButtonsModalComponent,
+    NotFoundComponent
   ]
 })
 export class CharacterModule { }

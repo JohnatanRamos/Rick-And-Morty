@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+
 import { BaseClass } from 'src/app/core/base.class';
 import { ITypeFilters, typeFields } from 'src/app/core/interfaces/ITypeFilters.interface';
 import { IRickAndMorty } from 'src/app/store/reducers/rickAndMorty.reducer';
@@ -11,7 +14,7 @@ import { ViewCharacterComponent } from '../view-character/view-character.compone
   templateUrl: './list-characters.component.html',
   styleUrls: ['./list-characters.component.scss']
 })
-export class ListCharactersComponent extends BaseClass implements OnInit {
+export class ListCharactersComponent extends BaseClass implements OnInit, OnDestroy {
   currentPage = 1;
   status = new FormControl(null);
   gender = new FormControl(null);
@@ -22,16 +25,23 @@ export class ListCharactersComponent extends BaseClass implements OnInit {
     Alive: 'Vivo',
     unknown: 'Desconocido'
   };
+  store$!: Subscription;
 
   ngOnInit(): void {
     this.getCharacters();
 
-    this.store.select('rickAndMorty').subscribe({
+    this.store$ = this.store.select('rickAndMorty').subscribe({
       next: (res: IRickAndMorty) => {
         this.currentPage = res.currentPage;
         this.options = res.options;
+        this.notFound = res.notFound;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.store$.unsubscribe();
+    this.store.dispatch(actions.resetValues());
   }
 
   getCharacters() {
@@ -39,6 +49,11 @@ export class ListCharactersComponent extends BaseClass implements OnInit {
       next: (res: any) => {
         this.store.dispatch(actions.setResponseApi({ responseApi: res }));
       },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.store.dispatch(actions.notFoundValue());
+        }
+      }
     });
   }
 

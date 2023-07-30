@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ViewLocationComponent } from './view-location/view-location.component';
 import { TitleModalComponent } from 'src/app/shared/title-modal/title-modal.component';
 import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-modal.component';
+import { NotFoundComponent } from 'src/app/shared/not-found/not-found.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-moda
     LocationRoutingModule,
     SharedModule,
     TitleModalComponent,
-    ButtonsModalComponent
+    ButtonsModalComponent,
+    NotFoundComponent
   ]
 })
 export class LocationModule { }

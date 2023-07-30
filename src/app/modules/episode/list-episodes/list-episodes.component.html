@@ -1,19 +1,25 @@
 <div class="main-container">
     <app-filter (emitFilter)="getEpisodes()"></app-filter>
 
-    <app-sort (emitSort)="getEpisodes()"></app-sort>
+    <ng-container *ngIf="!notFound; else notFoundTemplate">
+        <app-sort (emitSort)="getEpisodes()"></app-sort>
 
-    <div class="average-width">
-        <h2 class="title">Lista de episodios</h2>
-        <ul class="list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
-            <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="list-item"
-            (click)="openModal(modal, item)">
-                <a class="item-link">
-                    {{ item.name }} - {{ item.episode }}
-                </a>
-            </li>
-        </ul>
-    </div>
+        <div class="average-width">
+            <h2 class="title">Lista de episodios</h2>
+            <ul class="list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
+                <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="list-item"
+                    (click)="openModal(modal, item)">
+                    <a class="item-link">
+                        {{ item.name }} - {{ item.episode }}
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <app-pagination (emitPageChange)="getEpisodes()"></app-pagination>
+        <app-pagination (emitPageChange)="getEpisodes()"></app-pagination>
+    </ng-container>
 </div>
+
+<ng-template #notFoundTemplate>
+    <app-not-found></app-not-found>
+</ng-template>

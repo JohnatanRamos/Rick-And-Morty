@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="modal-content">
     <app-title-modal [titleModal]="data.name"></app-title-modal>
 
     <div class="information-content">
@@ -15,8 +15,6 @@
             <p>{{data.dimension || 'No cuenta con una dimensión'}}</p>
         </div>
     </div>
-<!-- 
-    <pre style="color: white;" *ngIf="data.residents"> {{ data.residents[0] | json }} </pre> -->
 
     <app-buttons-modal></app-buttons-modal>
 </div>

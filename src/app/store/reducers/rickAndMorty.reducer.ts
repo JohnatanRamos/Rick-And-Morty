@@ -8,35 +8,45 @@ export interface IRickAndMorty {
   responseApi?: IResponseApi;
   currentPage: number;
   options: ITypeFilters;
+  notFound: boolean;
 }
 
 export const initialState: IRickAndMorty = {
   currentPage: 1,
-  options: {}
+  options: {},
+  notFound: false
 };
 
 const _rickAndMortyReducer = createReducer(
   initialState,
 
-  on(actions.setResponseApi, (state, {responseApi}) => {
+  on(actions.setResponseApi, (state, { responseApi }) => {
     const response = structuredClone(responseApi);
-    return { ...state, responseApi: response};
+    return { ...state, responseApi: response, notFound: false };
   }),
 
-  on(actions.setPagination, (state, {currentPage}) => {
-    return {...state, currentPage};
+  on(actions.setPagination, (state, { currentPage }) => {
+    return { ...state, currentPage };
   }),
 
-  on(actions.setOptions, (state, {field, value}) => {
-    let newOptions = {...state.options};
+  on(actions.setOptions, (state, { field, value }) => {
+    let newOptions = { ...state.options };
     if (!value) {
       delete newOptions[field];
     } else {
       newOptions = {
-        [field]: value
+        [field]: value,
       };
     }
-    return {...state, options: {...newOptions}};
+    return { ...state, options: { ...newOptions } };
+  }),
+
+  on(actions.resetValues, () => {
+    return { currentPage: 1, options: {}, notFound: false };
+  }),
+
+  on(actions.notFoundValue, (state) => {
+    return {...state, notFound: true};
   })
 );
 
