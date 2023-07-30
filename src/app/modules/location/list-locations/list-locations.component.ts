@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { BaseClass } from 'src/app/core/base.class';
 import { ITypeFilters } from 'src/app/core/interfaces/ITypeFilters.interface';
 import { IRickAndMorty } from 'src/app/store/reducers/rickAndMorty.reducer';
@@ -12,8 +11,6 @@ import * as actions from '../../../store/actions/rickAndMorty.actions';
 })
 export class ListLocationsComponent extends BaseClass implements OnInit {
   currentPage = 1;
-  status = new FormControl(null);
-  gender = new FormControl(null);
   options: ITypeFilters = {};
 
   ngOnInit(): void {
@@ -34,16 +31,4 @@ export class ListLocationsComponent extends BaseClass implements OnInit {
       },
     });
   }
-
-  // setFilters(field: 'name' | 'type' | 'status' | 'gender', value: string | null) {
-  //   if (!value) {
-  //     delete this.options[field];
-  //     return;
-  //   }
-  //   this.options = {
-  //     [field]: value
-  //   };
-  //   this.currentPage = 1;
-  //   this.getLocations();
-  // }
 }

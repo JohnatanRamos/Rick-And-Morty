@@ -1,31 +1,12 @@
 <app-filter (emitFilter)="getLocations()"></app-filter>
 
 <app-sort (emitSort)="getLocations()"></app-sort>
-<!-- ESTO SOLO ES PARA LOS PERSONAJES -->
-<!-- <div class="opciones-container">
-  <label for="estado">Estado:</label>
-    <select [formControl]="status" (change)="setFilters('status', status.value)">
-      <option [value]="null">Todos</option>
-      <option value="Alive">Vivo</option>
-      <option value="Dead">Muerto</option>
-      <option value="unknown">Desconocido</option>
-    </select>
-  
-    <label for="genero">Género:</label>
-    <select [formControl]="gender" (change)="setFilters('gender', gender.value)">
-      <option [value]="null">Todos</option>
-      <option value="Male">Masculino</option>
-      <option value="Female">Femenino</option>
-      <option value="Genderless">Sin género</option>
-      <option value="unknown">Desconocido</option>
-    </select>
-</div> -->
 
 <h2>Lista de episodios</h2>
 <ul class="episodios-list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
   <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="episodios-item">
     <a class="episodios-link">
-      {{ item.name }} - {{ item.status }}
+      {{ item.name }} {{ item.type ? ' - ' + item.type: '' }}
     </a>
   </li>
 </ul>

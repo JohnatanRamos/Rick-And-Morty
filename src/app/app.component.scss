@@ -1,0 +1,31 @@
+/* Estilo para el menú de navegación */
+.navbar {
+    background-color: #512da8;
+    padding: 10px;
+}
+
+/* Estilo para la lista de opciones del menú */
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+/* Estilo para cada elemento del menú */
+.navbar-item {
+    margin-right: 20px;
+}
+
+/* Estilo para los enlaces de las opciones del menú */
+.navbar-item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Estilo para resaltar la opción seleccionada */
+.navbar-item a.active {
+    background-color: #9c27b0;
+}
