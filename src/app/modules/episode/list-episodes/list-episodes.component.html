@@ -6,7 +6,8 @@
     <div class="average-width">
         <h2 class="title">Lista de episodios</h2>
         <ul class="list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
-            <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="list-item">
+            <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="list-item"
+            (click)="openModal(modal, item)">
                 <a class="item-link">
                     {{ item.name }} - {{ item.episode }}
                 </a>

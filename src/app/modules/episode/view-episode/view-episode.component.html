@@ -1,0 +1,19 @@
+<div class="main-container">
+    <app-title-modal [titleModal]="data.name"></app-title-modal>
+
+    <div class="information-content">
+        <div class="flex">
+            <p class="sub-title">Nombre:</p>
+            <p>{{data.name}}</p>
+        </div>
+        <div class="flex">
+            <p class="sub-title">Fecha episodio:</p>
+            <p>{{data.air_date || 'No cuenta con una fecha'}}</p>
+        </div>
+        <div class="flex">
+            <p class="sub-title">Codigo episodio:</p>
+            <p>{{data.episode || 'No cuenta con un codigo'}}</p>
+        </div>
+    </div>
+    <app-buttons-modal></app-buttons-modal>
+</div>

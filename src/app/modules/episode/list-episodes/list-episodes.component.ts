@@ -3,6 +3,7 @@ import { BaseClass } from 'src/app/core/base.class';
 import { ITypeFilters } from 'src/app/core/interfaces/ITypeFilters.interface';
 import { IRickAndMorty } from 'src/app/store/reducers/rickAndMorty.reducer';
 import * as actions from '../../../store/actions/rickAndMorty.actions';
+import { ViewEpisodeComponent } from '../view-episode/view-episode.component';
 
 @Component({
   selector: 'app-list-episodes',
@@ -12,6 +13,7 @@ import * as actions from '../../../store/actions/rickAndMorty.actions';
 export class ListEpisodesComponent extends BaseClass implements OnInit {
   currentPage = 1;
   options: ITypeFilters = {};
+  modal = ViewEpisodeComponent;
 
   ngOnInit(): void {
     this.getEpisodes();
