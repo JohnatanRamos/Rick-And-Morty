@@ -1,0 +1,22 @@
+<div class="main-container">
+    <app-title-modal [titleModal]="data.name"></app-title-modal>
+
+    <div class="information-content">
+        <div class="flex">
+            <p class="sub-title">Nombre:</p>
+            <p>{{data.name}}</p>
+        </div>
+        <div class="flex">
+            <p class="sub-title">Tipo:</p>
+            <p>{{data.type || 'No cuenta con un tipo'}}</p>
+        </div>
+        <div class="flex">
+            <p class="sub-title">Dimensión:</p>
+            <p>{{data.dimension || 'No cuenta con una dimensión'}}</p>
+        </div>
+    </div>
+<!-- 
+    <pre style="color: white;" *ngIf="data.residents"> {{ data.residents[0] | json }} </pre> -->
+
+    <app-buttons-modal></app-buttons-modal>
+</div>
