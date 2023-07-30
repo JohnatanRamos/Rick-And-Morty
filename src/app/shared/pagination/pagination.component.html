@@ -1,0 +1,9 @@
+<div class="pagination" *ngIf="responseApi">
+    <button (click)="prev()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} de {{ responseApi.info.pages }}</span>
+    <button (click)="next()" [disabled]="currentPage === responseApi.info.pages">Siguiente</button>
+</div>
+
+<div *ngIf="!responseApi || responseApi.results.length === 0" class="sin-resultados">
+    <p>No se encontraron resultados.</p>
+</div>
