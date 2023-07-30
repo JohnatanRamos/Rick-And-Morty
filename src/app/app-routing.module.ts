@@ -5,6 +5,11 @@ const routes: Routes = [{
   path: 'locations',
   loadChildren: () =>
       import('./modules/location/location.module').then((m) => m.LocationModule),
+},
+{
+  path: 'episodes',
+  loadChildren: () =>
+      import('./modules/episode/episode.module').then((m) => m.EpisodeModule),
 }];
 
 @NgModule({

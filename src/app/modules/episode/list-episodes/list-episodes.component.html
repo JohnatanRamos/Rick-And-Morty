@@ -1,0 +1,14 @@
+<app-filter (emitFilter)="getEpisodes()"></app-filter>
+
+<app-sort (emitSort)="getEpisodes()"></app-sort>
+
+<h2>Lista de episodios</h2>
+<ul class="episodios-list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
+    <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="episodios-item">
+        <a class="episodios-link">
+            {{ item.name }} - {{ item.episode }}
+        </a>
+    </li>
+</ul>
+
+<app-pagination (emitPageChange)="getEpisodes()"></app-pagination>
