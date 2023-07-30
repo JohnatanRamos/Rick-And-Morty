@@ -10,6 +10,7 @@ export class BaseClass {
   protected store = inject(Store<AppState>);
   protected dialog = inject(MatDialog);
   protected notFound!: boolean;
+  listFields: {label: string, value: string}[] = [];
 
   openModal(modal: ComponentType<unknown>, data: any) {
     this.dialog.open(modal, {

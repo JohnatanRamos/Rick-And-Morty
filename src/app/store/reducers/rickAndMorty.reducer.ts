@@ -35,6 +35,7 @@ const _rickAndMortyReducer = createReducer(
       delete newOptions[field];
     } else {
       newOptions = {
+        ...newOptions,
         [field]: value,
       };
     }

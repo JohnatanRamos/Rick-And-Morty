@@ -1,9 +1,9 @@
 <div class="main-container">
-  <app-filter (emitFilter)="getLocations()"></app-filter>
+  <app-filter (emitFilter)="getLocations()" [listFields]="listFields"></app-filter>
 
   <ng-container *ngIf="!notFound; else notFoundTemplate">
 
-    <app-sort (emitSort)="getLocations()"></app-sort>
+    <app-sort (emitSort)="getLocations()" [listFields]="listFields"></app-sort>
 
     <div class="average-width">
       <h2 class="title">Lista de lugares</h2>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { IResponseApi } from 'src/app/core/interfaces/IResponseApi.interface';
@@ -14,6 +14,7 @@ import * as actions from '../../store/actions/rickAndMorty.actions';
 export class SortComponent implements OnInit {
   protected store = inject(Store<AppState>);
   @Output() emitSort = new EventEmitter();
+  @Input() listFields: {label: string, value: string}[] = [];
 
   fieldSort = new FormControl('');
   typeSort = new FormControl('asc');

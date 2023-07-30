@@ -1,9 +1,10 @@
 <div class="filter-content">
     <div class="opciones-container margin-0">
-        <label for="filter">Buscar por:</label>
+        <label for="filter" class="nowrap">Buscar por:</label>
         <select [formControl]="fieldToSearch" (change)="search()">
-            <option value="name">name</option>
-            <option value="type">type</option>
+            <ng-container *ngFor="let item of listFields">
+                <option [value]="item.value">{{ item.label }}</option>
+            </ng-container>
         </select>
     </div>
     

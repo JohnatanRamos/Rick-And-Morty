@@ -6,8 +6,9 @@
         <label for="orden">Ordenar por:</label>
         <select [formControl]="fieldSort" (change)="sort()">
           <option value="">Sin orden</option>
-          <option value="name">name</option>
-          <option value="type">type</option>
+          <ng-container *ngFor="let item of listFields">
+            <option [value]="item.value">{{ item.label }}</option>
+          </ng-container>
         </select>
       </div>
 

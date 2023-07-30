@@ -21,7 +21,14 @@ export class ListEpisodesComponent extends BaseClass implements OnInit, OnDestro
 
   ngOnInit(): void {
     this.getEpisodes();
-
+    this.listFields = [{
+      label: 'Nombre',
+      value: 'name'
+    },
+    {
+      label: 'Episodio',
+      value: 'episode'
+    }];
     this.store$ = this.store.select('rickAndMorty').subscribe({
       next: (res: IRickAndMorty) => {
         this.currentPage = res.currentPage;

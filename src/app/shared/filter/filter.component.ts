@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
@@ -14,6 +14,7 @@ import * as actions from '../../store/actions/rickAndMorty.actions';
 export class FilterComponent implements OnInit {
   protected store = inject(Store<AppState>);
   @Output() emitFilter = new EventEmitter();
+  @Input() listFields: {label: string, value: string}[] = [];
   
   fieldToSearch = new FormControl('name');
   worldToSearch = new FormControl('');

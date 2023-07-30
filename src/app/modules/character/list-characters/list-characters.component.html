@@ -1,14 +1,14 @@
 <div class="main-container">
-  <app-filter (emitFilter)="getCharacters()"></app-filter>
+  <app-filter (emitFilter)="getCharacters()" [listFields]="listFields"></app-filter>
 
  <ng-container *ngIf="!notFound; else notFoundTemplate">
   <div class="filters-sort-content">
-    <app-sort (emitSort)="getCharacters()"></app-sort>
+    <app-sort (emitSort)="getCharacters()" [listFields]="listFields"></app-sort>
 
     <div class="opciones-container">
       <label for="estado">Estado:</label>
       <select [formControl]="status" (change)="setFilters('status', status.value)">
-        <option [value]="null">Todos</option>
+        <option value="">Todos</option>
         <option value="Alive">Vivo</option>
         <option value="Dead">Muerto</option>
         <option value="unknown">Desconocido</option>
@@ -16,7 +16,7 @@
 
       <label for="genero">Género:</label>
       <select [formControl]="gender" (change)="setFilters('gender', gender.value)">
-        <option [value]="null">Todos</option>
+        <option value="">Todos</option>
         <option value="Male">Masculino</option>
         <option value="Female">Femenino</option>
         <option value="Genderless">Sin género</option>

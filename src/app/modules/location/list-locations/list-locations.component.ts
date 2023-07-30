@@ -21,7 +21,14 @@ export class ListLocationsComponent extends BaseClass implements OnInit, OnDestr
 
   ngOnInit(): void {
     this.getLocations();
-
+    this.listFields = [{
+      label: 'Nombre',
+      value: 'name'
+    },
+    {
+      label: 'Tipo',
+      value: 'type'
+    }];
     this.store$ = this.store.select('rickAndMorty').subscribe({
       next: (res: IRickAndMorty) => {
         this.currentPage = res.currentPage;

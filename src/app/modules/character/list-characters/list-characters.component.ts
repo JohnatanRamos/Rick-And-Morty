@@ -16,8 +16,8 @@ import { ViewCharacterComponent } from '../view-character/view-character.compone
 })
 export class ListCharactersComponent extends BaseClass implements OnInit, OnDestroy {
   currentPage = 1;
-  status = new FormControl(null);
-  gender = new FormControl(null);
+  status = new FormControl("");
+  gender = new FormControl("");
   options: ITypeFilters = {};
   modal = ViewCharacterComponent;
   typeStatus: any = {
@@ -29,7 +29,14 @@ export class ListCharactersComponent extends BaseClass implements OnInit, OnDest
 
   ngOnInit(): void {
     this.getCharacters();
-
+    this.listFields = [{
+      label: 'Nombre',
+      value: 'name'
+    },
+    {
+      label: 'Tipo',
+      value: 'type'
+    }];
     this.store$ = this.store.select('rickAndMorty').subscribe({
       next: (res: IRickAndMorty) => {
         this.currentPage = res.currentPage;
