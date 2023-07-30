@@ -1,0 +1,58 @@
+.episodios-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.episodios-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.episodios-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.episodios-item:hover {
+  background-color: #e0e0e0;
+}
+
+
+
+
+
+
+.opciones-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.opciones-container label {
+  margin-right: 10px;
+}
+
+.opciones-container select {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.opciones-container select option {
+  background-color: #fff;
+}
+
+.opciones-container select option[value=""] {
+  font-style: italic;
+}
+
+.opciones-container select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
