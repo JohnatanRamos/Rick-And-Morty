@@ -1,19 +1,23 @@
 <ng-container *ngIf="(store.select('rickAndMorty') | async)?.responseApi?.results?.length > 0">
-  <h4>Ordenamiento por pagína</h4>
-  <div class="opciones-container">
-    <label for="orden">Orden:</label>
-    <select [formControl]="fieldSort" (change)="sort()">
-      <option value="">Sin orden</option>
-      <option value="name">name</option>
-      <option value="type">type</option>
-    </select>
+  <div>
+    <h5 class="warning">(Ordenamiento por pagína)</h5>
+    <div class="opciones-container">
+      <div>
+        <label for="orden">Ordenar por:</label>
+        <select [formControl]="fieldSort" (change)="sort()">
+          <option value="">Sin orden</option>
+          <option value="name">name</option>
+          <option value="type">type</option>
+        </select>
+      </div>
 
-    <ng-container *ngIf="fieldSort.value">
-      <label for="orden">Tipo de ordenamiento:</label>
-      <select [formControl]="typeSort" (change)="sort()">
-        <option value="asc">Ascendente</option>
-        <option value="desc">Descendente</option>
-      </select>
-    </ng-container>
+      <div *ngIf="fieldSort.value">
+        <label for="orden">Tipo de ordenamiento:</label>
+        <select [formControl]="typeSort" (change)="sort()">
+          <option value="asc">Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+      </div>
+    </div>
   </div>
 </ng-container>

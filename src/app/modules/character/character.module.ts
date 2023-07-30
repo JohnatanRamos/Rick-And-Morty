@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { CharacterRoutingModule } from './character-routing.module';
 import { ListCharactersComponent } from './list-characters/list-characters.component';
@@ -15,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CharacterRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgOptimizedImage,
   ]
 })
 export class CharacterModule { }

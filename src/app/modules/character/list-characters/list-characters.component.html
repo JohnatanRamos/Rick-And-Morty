@@ -1,34 +1,42 @@
-<app-filter (emitFilter)="getCharacters()"></app-filter>
+<div class="main-container">
+  <app-filter (emitFilter)="getCharacters()"></app-filter>
 
-<app-sort (emitSort)="getCharacters()"></app-sort>
+  <div class="filters-sort-content">
+    <app-sort (emitSort)="getCharacters()"></app-sort>
 
+    <div class="opciones-container">
+      <label for="estado">Estado:</label>
+      <select [formControl]="status" (change)="setFilters('status', status.value)">
+        <option [value]="null">Todos</option>
+        <option value="Alive">Vivo</option>
+        <option value="Dead">Muerto</option>
+        <option value="unknown">Desconocido</option>
+      </select>
 
-<div class="opciones-container">
-  <label for="estado">Estado:</label>
-    <select [formControl]="status" (change)="setFilters('status', status.value)">
-      <option [value]="null">Todos</option>
-      <option value="Alive">Vivo</option>
-      <option value="Dead">Muerto</option>
-      <option value="unknown">Desconocido</option>
-    </select>
-  
-    <label for="genero">Género:</label>
-    <select [formControl]="gender" (change)="setFilters('gender', gender.value)">
-      <option [value]="null">Todos</option>
-      <option value="Male">Masculino</option>
-      <option value="Female">Femenino</option>
-      <option value="Genderless">Sin género</option>
-      <option value="unknown">Desconocido</option>
-    </select>
+      <label for="genero">Género:</label>
+      <select [formControl]="gender" (change)="setFilters('gender', gender.value)">
+        <option [value]="null">Todos</option>
+        <option value="Male">Masculino</option>
+        <option value="Female">Femenino</option>
+        <option value="Genderless">Sin género</option>
+        <option value="unknown">Desconocido</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="list-characters">
+    <h2 class="title">Lista de personajes</h2>
+    <div class="content-cards" *ngIf="(store.select('rickAndMorty') | async).responseApi">
+      <div *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="card">
+        <img oncontextmenu='return false' onkeydown='return false' [ngSrc]="item.image" alt="{{item.name}}"
+          [width]="'300'" [height]="'300'">
+        <div class="card-info">
+          <p class="product-name">{{item.name}}</p>
+          <p class="product-name">{{ item.status }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-pagination (emitPageChange)="getCharacters()"></app-pagination>
 </div>
-
-<h2>Lista de episodios</h2>
-<ul class="episodios-list" *ngIf="(store.select('rickAndMorty') | async).responseApi">
-    <li *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="episodios-item">
-        <a class="episodios-link">
-            {{ item.name }} - {{ item.status }}
-        </a>
-    </li>
-</ul>
-
-<app-pagination (emitPageChange)="getCharacters()"></app-pagination>

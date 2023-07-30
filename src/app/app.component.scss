@@ -1,6 +1,6 @@
 /* Estilo para el menú de navegación */
 .navbar {
-    background-color: #512da8;
+    background-color: #2ecc71;
     padding: 10px;
 }
 
@@ -9,6 +9,10 @@
     list-style-type: none;
     padding: 0;
     display: flex;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 8px;
 }
 
 /* Estilo para cada elemento del menú */
@@ -27,5 +31,5 @@
 
 /* Estilo para resaltar la opción seleccionada */
 .navbar-item a.active {
-    background-color: #9c27b0;
+    color: #3a3a3a;
 }

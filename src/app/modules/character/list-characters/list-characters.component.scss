@@ -1,33 +1,63 @@
 @import '/src/assets/styles/lists';
+@import "/src/assets/styles/options";
 
-.opciones-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.filters-sort-content {
+    width: 83%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .opciones-container, app-sort ::ng-deep .opciones-container {
+        width: 100%;
+    }
+
+    .opciones-container {
+        align-self: flex-end;
+    }
 }
 
-.opciones-container label {
-    margin-right: 10px;
+.list-characters {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.opciones-container select {
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
+.content-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 30px;
 }
 
-.opciones-container select option {
-    background-color: #fff;
+.card {
+    border-radius: 8px;
+
+    img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .card-info {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0px 0px 0px 8px;
+
+        .product-name {
+            font-weight: 700;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+
 }
 
-.opciones-container select option[value=""] {
-    font-style: italic;
-}
-
-.opciones-container select:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 10px rgba(88, 176, 192, 0.8);
 }

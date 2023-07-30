@@ -1,58 +1,39 @@
-/* Estilo para el contenedor del buscador */
-.busqueda-container {
-    margin-bottom: 20px;
-    width: 98%;
+@import "/src/assets/styles/options";
+
+.filter-content {
+    display: flex;
+    width: 75%;
+    margin: 0px auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 15px;
 }
 
-/* Estilo para el campo de búsqueda */
-.busqueda-input {
-    width: 100%;
+input {
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px rgb(23 23 23);
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 690px;
+    border-radius: 24px;
+    margin: 0 auto;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    color: white;
 }
 
-.sin-resultados {
-    color: #666;
+input::placeholder {
+    color:white;
+  }
+
+input:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
-
-
-/* Estilo para el contenedor de filtros */
-.opciones-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+input:focus-visible {
+    outline: none;
 }
 
-/* Estilo para las etiquetas de los filtros */
-.opciones-container label {
-    margin-right: 10px;
-}
-
-/* Estilo para los selectores de filtros */
-.opciones-container select {
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-/* Estilo para las opciones desplegadas de los selectores */
-.opciones-container select option {
-    background-color: #fff;
-}
-
-/* Estilo para el texto "Sin orden" en el selector */
-.opciones-container select option[value=""] {
-    font-style: italic;
-}
-
-/* Estilo para los selectores cuando están deshabilitados */
-.opciones-container select:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.margin-0 {
+    margin: 0px;
 }
