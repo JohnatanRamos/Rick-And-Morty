@@ -1,21 +1,29 @@
-.episodios-list {
+.list {
     list-style-type: none;
     padding: 0;
 }
 
-.episodios-item {
+.list-item {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px rgb(23, 23, 23);
+    background-color: rgba(255, 255, 255, 0.15);
+    text-align: center;
+    color: white;
 }
 
-.episodios-link {
+.item-link {
     text-decoration: none;
-    color: #333;
+    color: white;
+    font-weight: 700;
 }
 
-.episodios-item:hover {
-    background-color: #e0e0e0;
+.list-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+    box-shadow: 0 10px 10px rgba(88, 176, 192, 0.8);
+    margin-bottom: 20px;
 }

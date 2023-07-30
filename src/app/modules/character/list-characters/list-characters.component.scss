@@ -16,11 +16,6 @@
     }
 }
 
-.list-characters {
-    width: 80%;
-    margin: 0 auto;
-}
-
 .content-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
@@ -45,7 +40,7 @@
         align-items: flex-start;
         margin: 0px 0px 0px 8px;
 
-        .product-name {
+        .text {
             font-weight: 700;
             white-space: nowrap;
             text-overflow: ellipsis;

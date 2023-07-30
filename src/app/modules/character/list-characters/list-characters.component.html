@@ -24,15 +24,15 @@
     </div>
   </div>
 
-  <div class="list-characters">
+  <div class="average-width">
     <h2 class="title">Lista de personajes</h2>
     <div class="content-cards" *ngIf="(store.select('rickAndMorty') | async).responseApi">
       <div *ngFor="let item of (store.select('rickAndMorty') | async).responseApi.results" class="card">
         <img oncontextmenu='return false' onkeydown='return false' [ngSrc]="item.image" alt="{{item.name}}"
           [width]="'300'" [height]="'300'">
         <div class="card-info">
-          <p class="product-name">{{item.name}}</p>
-          <p class="product-name">{{ item.status }}</p>
+          <p class="text">{{item.name}}</p>
+          <p class="text">{{ item.status }}</p>
         </div>
       </div>
     </div>
