@@ -56,3 +56,9 @@
     transform: scale(1.1);
     box-shadow: 0 10px 10px rgba(88, 176, 192, 0.8);
 }
+
+@media screen and (max-width: 500px) {
+    .filters-sort-content {
+        display: block;
+    }
+}
