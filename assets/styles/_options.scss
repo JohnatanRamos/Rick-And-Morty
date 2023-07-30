@@ -1,0 +1,40 @@
+/* Estilo para el contenedor de filtros */
+.opciones-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0px auto 10px;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Estilo para las etiquetas de los filtros */
+.opciones-container label {
+    margin-right: 10px;
+}
+
+/* Estilo para los selectores de filtros */
+.opciones-container select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Estilo para las opciones desplegadas de los selectores */
+.opciones-container select option {
+    background-color: #fff;
+}
+
+/* Estilo para el texto "Sin orden" en el selector */
+.opciones-container select option[value=""] {
+    font-style: italic;
+}
+
+/* Estilo para los selectores cuando están deshabilitados */
+.opciones-container select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
