@@ -1,0 +1,11 @@
+<div class="opciones-container">
+    <label for="filter">Buscar por:</label>
+    <select [formControl]="fieldToSearch" (change)="search()">
+        <option value="name">name</option>
+        <option value="type">type</option>
+    </select>
+</div>
+
+<div class="busqueda-container">
+    <input type="text" [formControl]="worldToSearch" placeholder="Buscar..." class="busqueda-input">
+</div>
